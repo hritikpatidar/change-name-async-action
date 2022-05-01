@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeNameAsyncActionCreator } from '.';
 
 function App() {
+  //1.stoer
+   // let state = useSelector((state)=>{
+  //   return state
+  // })
+
+  let state = useSelector(store=>store);
+  //console.log(state.name);
+
+  let dispatch = useDispatch()
+
+
+
+  //2. function defination
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{state.name}</h1>
+     
+      {/* {console.log(state.name)} */}
+      <button onClick={ (e)=>{ dispatch(changeNameAsyncActionCreator()) }}>change Name</button>
     </div>
   );
 }
